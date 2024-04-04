@@ -24,5 +24,13 @@ module AmexCsvToLedger
     def test_use_tabs_default
       refute_predicate(@empty_config, :use_tabs?)
     end
+
+    def test_indent_size
+      assert_equal(2, @config.indent_size)
+    end
+
+    def test_indent_size_default
+      assert_equal(4, @empty_config.indent_size)
+    end
   end
 end

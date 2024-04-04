@@ -20,5 +20,9 @@ module AmexCsvToLedger
     def use_tabs?
       @config.fetch('use_tabs', false)
     end
+
+    def indent_size
+      @config.fetch('indent_size', 4)
+    end
   end
 end

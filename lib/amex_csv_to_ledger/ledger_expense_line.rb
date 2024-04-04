@@ -3,7 +3,6 @@
 module AmexCsvToLedger
   # Class to format ledger expense lines with a currency amount.
   class LedgerExpenseLine
-    DEFAULT_INDENT_LENGTH = 4
     DEFAULT_SPACING = 42
     DEFAULT_PLACEHOLDER = 'expenses:placeholder'
     TAB_LENGTH = 8
@@ -24,7 +23,7 @@ module AmexCsvToLedger
       if use_tabs?
         "\t"
       else
-        ' ' * DEFAULT_INDENT_LENGTH
+        ' ' * indent_size
       end
     end
 
@@ -40,7 +39,7 @@ module AmexCsvToLedger
       if use_tabs?
         DEFAULT_SPACING - TAB_LENGTH - @amount.length
       else
-        DEFAULT_SPACING - DEFAULT_INDENT_LENGTH - @amount.length
+        DEFAULT_SPACING - indent_size - @amount.length
       end
     end
 
@@ -50,6 +49,10 @@ module AmexCsvToLedger
 
     def use_tabs?
       AmexCsvToLedger.config.use_tabs?
+    end
+
+    def indent_size
+      AmexCsvToLedger.config.indent_size
     end
   end
 end

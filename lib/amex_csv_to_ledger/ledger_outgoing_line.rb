@@ -3,7 +3,6 @@
 module AmexCsvToLedger
   # Class to format ledger outgoing lines.
   class LedgerOutgoingLine
-    DEFAULT_INDENT_LENGTH = 4
     DEFAULT_OUTGOING_ACCOUNT = 'liabilities:creditcard:amex'
     TAB_LENGTH = 8
 
@@ -17,7 +16,7 @@ module AmexCsvToLedger
       if use_tabs?
         "\t"
       else
-        ' ' * DEFAULT_INDENT_LENGTH
+        ' ' * indent_size
       end
     end
 
@@ -27,6 +26,10 @@ module AmexCsvToLedger
 
     def use_tabs?
       AmexCsvToLedger.config.use_tabs?
+    end
+
+    def indent_size
+      AmexCsvToLedger.config.indent_size
     end
   end
 end
