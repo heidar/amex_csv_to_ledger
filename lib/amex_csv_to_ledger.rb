@@ -13,6 +13,6 @@ module AmexCsvToLedger
   def self.convert(csv_path)
     csv = File.open(csv_path)
     statement = Statement.new(csv)
-    puts LedgerReport.new(statement).lines.join("\n")
+    puts LedgerReport.new(statement).lines.join("\n\n")
   end
 end
