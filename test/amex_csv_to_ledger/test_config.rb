@@ -48,5 +48,13 @@ module AmexCsvToLedger
     def test_currency_prefixed_default
       refute_predicate(@empty_config, :currency_prefixed?)
     end
+
+    def test_currency
+      assert_equal('$', @config.currency)
+    end
+
+    def test_currency_default
+      assert_equal('GBP', @empty_config.currency)
+    end
   end
 end

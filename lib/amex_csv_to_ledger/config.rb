@@ -32,5 +32,9 @@ module AmexCsvToLedger
     def currency_prefixed?
       @config.fetch('currency_prefixed', false)
     end
+
+    def currency
+      @config.fetch('currency', 'GBP')
+    end
   end
 end

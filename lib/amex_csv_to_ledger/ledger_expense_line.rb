@@ -45,7 +45,7 @@ module AmexCsvToLedger
     end
 
     def currency
-      'GBP'
+      AmexCsvToLedger.config.currency
     end
 
     def use_tabs?
