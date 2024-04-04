@@ -10,7 +10,7 @@ module AmexCsvToLedger
     end
 
     def lines
-      CSV.parse(@csv, headers: true).map do |row|
+      @lines ||= CSV.parse(@csv, headers: true).map do |row|
         StatementLine.new(
           amount: row['Amount'],
           date: row['Date'],
