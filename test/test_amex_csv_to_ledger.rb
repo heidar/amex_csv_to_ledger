@@ -3,6 +3,10 @@
 require 'test_helper'
 
 class TestAmexCsvToLedger < Minitest::Test
+  def setup
+    @csv_path = 'test/fixtures/amex.csv'
+  end
+
   def test_that_it_has_a_version_number
     refute_nil ::AmexCsvToLedger::VERSION
   end

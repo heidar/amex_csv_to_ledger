@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby     ■  Missing frozen string literal comment.
+
+require 'amex_csv_to_ledger'
+
+AmexCsvToLedger.convert(ARGV[0])
