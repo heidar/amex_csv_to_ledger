@@ -56,5 +56,13 @@ module AmexCsvToLedger
     def test_currency_default
       assert_equal('GBP', @empty_config.currency)
     end
+
+    def test_amex_category
+      assert_equal('Liabilities:CreditCard:Amex', @config.amex_category)
+    end
+
+    def test_amex_category_default
+      assert_equal('liabilities:creditcard:amex', @empty_config.amex_category)
+    end
   end
 end

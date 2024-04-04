@@ -36,5 +36,9 @@ module AmexCsvToLedger
     def currency
       @config.fetch('currency', 'GBP')
     end
+
+    def amex_category
+      @config.fetch('amex_category', 'liabilities:creditcard:amex')
+    end
   end
 end

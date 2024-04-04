@@ -3,7 +3,6 @@
 module AmexCsvToLedger
   # Class to format ledger outgoing lines.
   class LedgerOutgoingLine
-    DEFAULT_OUTGOING_ACCOUNT = 'liabilities:creditcard:amex'
     TAB_LENGTH = 8
 
     def output
@@ -21,7 +20,7 @@ module AmexCsvToLedger
     end
 
     def outgoing_account
-      DEFAULT_OUTGOING_ACCOUNT
+      AmexCsvToLedger.config.amex_category
     end
 
     def use_tabs?

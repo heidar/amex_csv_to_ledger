@@ -26,7 +26,7 @@ module AmexCsvToLedger
     private
 
     def use_tabs_config_mock
-      mock = Minitest::Mock.new
+      mock = Minitest::Mock.new(Config.new)
       def mock.use_tabs?
         true
       end
@@ -35,7 +35,7 @@ module AmexCsvToLedger
     end
 
     def different_indent_size_config_mock
-      mock = Minitest::Mock.new
+      mock = Minitest::Mock.new(Config.new)
       def mock.use_tabs?
         false
       end
