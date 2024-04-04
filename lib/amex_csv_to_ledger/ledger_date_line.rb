@@ -7,13 +7,15 @@ module AmexCsvToLedger
   class LedgerDateLine
     AMEX_DATE_FORMAT = '%Y/%m/%d'
 
+    attr_reader :description
+
     def initialize(date:, description:)
       @date = date
       @description = description
     end
 
     def output
-      "#{date} #{@description}"
+      "#{date} #{description}"
     end
 
     private
