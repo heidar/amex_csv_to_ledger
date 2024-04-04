@@ -21,11 +21,15 @@ module AmexCsvToLedger
     private
 
     def date
-      parsed_date.strftime('%Y-%m-%d')
+      parsed_date.strftime(date_format)
     end
 
     def parsed_date
       Date.parse(@date, AMEX_DATE_FORMAT)
+    end
+
+    def date_format
+      CONFIG.date_format
     end
   end
 end
