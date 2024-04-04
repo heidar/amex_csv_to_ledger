@@ -1,0 +1,6 @@
+date_format: '%Y-%m-%d'
+use_tabs: false
+indent_size: 4
+currency_prefixed: false
+currency: 'GBP'
+amex_category: 'liabilities:creditcard:amex'
