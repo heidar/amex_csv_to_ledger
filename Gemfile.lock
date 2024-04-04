@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    amex_csv_to_ledger (0.1.0)
+    amex_csv_to_ledger (0.1.1)
 
 GEM
   remote: https://rubygems.org/
