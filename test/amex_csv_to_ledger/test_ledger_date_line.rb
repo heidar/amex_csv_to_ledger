@@ -6,7 +6,7 @@ module AmexCsvToLedger
   class TestLedgerDateLine < Minitest::Test
     def setup
       @line = LedgerDateLine.new(
-        date: '2022-06-15',
+        date: '15/06/2022',
         description: 'foo bar.'
       )
     end

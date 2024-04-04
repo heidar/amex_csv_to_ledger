@@ -17,7 +17,7 @@ module AmexCsvToLedger
     end
 
     def test_date
-      assert_equal('2022-06-15', @line.date)
+      assert_equal('15/06/2022', @line.date)
     end
 
     def test_description
