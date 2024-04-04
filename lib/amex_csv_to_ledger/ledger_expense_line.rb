@@ -35,11 +35,7 @@ module AmexCsvToLedger
     end
 
     def spacing
-      if use_tabs?
-        DEFAULT_SPACING - TAB_LENGTH - placeholder.length - @amount.length
-      else
-        DEFAULT_SPACING - indent_size - placeholder.length - @amount.length
-      end
+      DEFAULT_SPACING - indent_size - placeholder.length - @amount.length
     end
 
     def currency
@@ -51,7 +47,11 @@ module AmexCsvToLedger
     end
 
     def indent_size
-      AmexCsvToLedger.config.indent_size
+      if use_tabs?
+        TAB_LENGTH
+      else
+        AmexCsvToLedger.config.indent_size
+      end
     end
   end
 end
