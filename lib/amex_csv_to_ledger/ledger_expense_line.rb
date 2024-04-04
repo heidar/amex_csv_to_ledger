@@ -3,8 +3,7 @@
 module AmexCsvToLedger
   # Class to format ledger expense lines with a currency amount.
   class LedgerExpenseLine
-    DEFAULT_SPACING = 42
-    DEFAULT_PLACEHOLDER = 'expenses:placeholder'
+    DEFAULT_SPACING = 62 # spacing used by LedgerAlignBuffer
     TAB_LENGTH = 8
 
     attr_reader :amount
@@ -28,7 +27,7 @@ module AmexCsvToLedger
     end
 
     def placeholder
-      DEFAULT_PLACEHOLDER
+      AmexCsvToLedger.config.expense_placeholder
     end
 
     def spaces
@@ -37,9 +36,9 @@ module AmexCsvToLedger
 
     def spacing
       if use_tabs?
-        DEFAULT_SPACING - TAB_LENGTH - @amount.length
+        DEFAULT_SPACING - TAB_LENGTH - placeholder.length - @amount.length
       else
-        DEFAULT_SPACING - indent_size - @amount.length
+        DEFAULT_SPACING - indent_size - placeholder.length - @amount.length
       end
     end
 

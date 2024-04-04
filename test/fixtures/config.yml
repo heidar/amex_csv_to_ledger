@@ -1,3 +1,4 @@
 date_format: '%d/%m/%Y'
 use_tabs: true
 indent_size: 2
+expense_placeholder: 'Expenses:Placeholder'

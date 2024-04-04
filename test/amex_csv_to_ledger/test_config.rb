@@ -32,5 +32,13 @@ module AmexCsvToLedger
     def test_indent_size_default
       assert_equal(4, @empty_config.indent_size)
     end
+
+    def test_expense_placeholder
+      assert_equal('Expenses:Placeholder', @config.expense_placeholder)
+    end
+
+    def test_expense_placeholder_default
+      assert_equal('expenses:placeholder', @empty_config.expense_placeholder)
+    end
   end
 end

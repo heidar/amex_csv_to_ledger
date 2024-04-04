@@ -24,5 +24,9 @@ module AmexCsvToLedger
     def indent_size
       @config.fetch('indent_size', 4)
     end
+
+    def expense_placeholder
+      @config.fetch('expense_placeholder', 'expenses:placeholder')
+    end
   end
 end
