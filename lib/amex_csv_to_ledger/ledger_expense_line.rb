@@ -6,6 +6,7 @@ module AmexCsvToLedger
     DEFAULT_INDENT_LENGTH = 4
     DEFAULT_SPACING = 42
     DEFAULT_PLACEHOLDER = 'expenses:placeholder'
+    TAB_LENGTH = 8
 
     attr_reader :amount
 
@@ -20,7 +21,11 @@ module AmexCsvToLedger
     private
 
     def indent
-      ' ' * DEFAULT_INDENT_LENGTH
+      if use_tabs?
+        "\t"
+      else
+        ' ' * DEFAULT_INDENT_LENGTH
+      end
     end
 
     def placeholder
@@ -32,11 +37,19 @@ module AmexCsvToLedger
     end
 
     def spacing
-      DEFAULT_SPACING - DEFAULT_INDENT_LENGTH - @amount.length
+      if use_tabs?
+        DEFAULT_SPACING - TAB_LENGTH - @amount.length
+      else
+        DEFAULT_SPACING - DEFAULT_INDENT_LENGTH - @amount.length
+      end
     end
 
     def currency
       'GBP'
+    end
+
+    def use_tabs?
+      AmexCsvToLedger.config.use_tabs?
     end
   end
 end

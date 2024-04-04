@@ -27,5 +27,26 @@ module AmexCsvToLedger
         line.output
       )
     end
+
+    def test_output_with_tabs
+      Config.stub(:new, config_mock) do
+        line = LedgerExpenseLine.new(amount: '13.37')
+        assert_equal(
+          "\texpenses:placeholder                             13.37 GBP",
+          line.output
+        )
+      end
+    end
+
+    private
+
+    def config_mock
+      mock = Minitest::Mock.new
+      def mock.use_tabs?
+        true
+      end
+
+      mock
+    end
   end
 end

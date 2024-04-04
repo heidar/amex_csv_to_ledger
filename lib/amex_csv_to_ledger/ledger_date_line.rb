@@ -29,7 +29,7 @@ module AmexCsvToLedger
     end
 
     def date_format
-      CONFIG.date_format
+      AmexCsvToLedger.config.date_format
     end
   end
 end

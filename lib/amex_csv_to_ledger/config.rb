@@ -16,5 +16,9 @@ module AmexCsvToLedger
     def date_format
       @config.fetch('date_format', '%Y-%m-%d')
     end
+
+    def use_tabs?
+      @config.fetch('use_tabs', false)
+    end
   end
 end
