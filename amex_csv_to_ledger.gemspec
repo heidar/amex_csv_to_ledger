@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|features)/)})
     end
   end
-  spec.bindir = 'exe'
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.executables = ['amex_csv_to_ledger']
   spec.require_paths = ['lib']
 end

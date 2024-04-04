@@ -1,4 +1,4 @@
-# !/usr/bin/env ruby     ■  Missing frozen string literal comment.
+# !/usr/bin/env ruby
 
 require 'amex_csv_to_ledger'
 
