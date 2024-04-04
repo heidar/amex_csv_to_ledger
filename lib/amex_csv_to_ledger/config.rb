@@ -28,5 +28,9 @@ module AmexCsvToLedger
     def expense_placeholder
       @config.fetch('expense_placeholder', 'expenses:placeholder')
     end
+
+    def currency_prefixed?
+      @config.fetch('currency_prefixed', false)
+    end
   end
 end

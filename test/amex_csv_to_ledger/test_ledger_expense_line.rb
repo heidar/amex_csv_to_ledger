@@ -58,6 +58,16 @@ module AmexCsvToLedger
       end
     end
 
+    def test_output_with_currency_prefixed
+      Config.stub(:new, currency_prefixed_config_mock) do
+        line = LedgerExpenseLine.new(amount: '13.37')
+        assert_equal(
+          '    expenses:placeholder                              GBP13.37',
+          line.output
+        )
+      end
+    end
+
     private
 
     def use_tabs_config_mock
@@ -84,6 +94,16 @@ module AmexCsvToLedger
 
       def mock.expense_placeholder
         'foo'
+      end
+
+      mock
+    end
+
+    def currency_prefixed_config_mock
+      mock = default_config_mock
+
+      def mock.currency_prefixed?
+        true
       end
 
       mock

@@ -13,7 +13,7 @@ module AmexCsvToLedger
     end
 
     def output
-      "#{indent}#{placeholder}#{spaces}#{amount} #{currency}"
+      "#{indent}#{placeholder}#{spaces}#{formatted_amount}"
     end
 
     private
@@ -35,7 +35,13 @@ module AmexCsvToLedger
     end
 
     def spacing
-      DEFAULT_SPACING - indent_size - placeholder.length - @amount.length
+      len = DEFAULT_SPACING - indent_size - placeholder.length - amount.length
+
+      if currency_prefixed?
+        len - currency.length
+      else
+        len
+      end
     end
 
     def currency
@@ -51,6 +57,18 @@ module AmexCsvToLedger
         TAB_LENGTH
       else
         AmexCsvToLedger.config.indent_size
+      end
+    end
+
+    def currency_prefixed?
+      AmexCsvToLedger.config.currency_prefixed?
+    end
+
+    def formatted_amount
+      if currency_prefixed?
+        "#{currency}#{amount}"
+      else
+        "#{amount} #{currency}"
       end
     end
   end

@@ -40,5 +40,13 @@ module AmexCsvToLedger
     def test_expense_placeholder_default
       assert_equal('expenses:placeholder', @empty_config.expense_placeholder)
     end
+
+    def test_currency_prefixed
+      assert_predicate(@config, :currency_prefixed?)
+    end
+
+    def test_currency_prefixed_default
+      refute_predicate(@empty_config, :currency_prefixed?)
+    end
   end
 end
